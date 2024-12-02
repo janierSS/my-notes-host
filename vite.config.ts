@@ -7,7 +7,8 @@ export default defineConfig({
   plugins: [react(), federation({
     name: 'my-notes',
     remotes: {
-      notesHomeRemote: 'http://localhost:5000/dist/assets/remoteEntry.js'
+      notesHomeRemote: 'http://localhost:5000/dist/assets/remoteEntry.js',
+      loginRemote: 'http://localhost:5001/dist/assets/remoteEntry.js'
     },
     shared: ['react', 'react-dom', 'react-router-dom', 'react-redux', '@reduxjs/toolkit']
   })],

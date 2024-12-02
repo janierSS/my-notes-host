@@ -1,23 +1,54 @@
-import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route, Outlet, Navigate } from 'react-router-dom';
+import React, { Suspense } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Layout from "./components/Layout";
+import ProtectedRoute from "./components/ProtectedRoute";
 
-const NotesHome = React.lazy(() => import('notesHomeRemote/NotesHome'))
+const NotesHome = React.lazy(() => import("notesHomeRemote/NotesHome"));
+const Login = React.lazy(() => import("loginRemote/Login"));
 
 function App() {
-
   return (
     <Router>
-      <header>Header</header>
       <Routes>
-        <Route path="/" element={<Navigate to="/home" />} />
-        <Route path="/home" element={<Suspense fallback={<div>Loading...</div>}><NotesHome/></Suspense>} />
-        <Route path="*" element={<div>Error</div>} />
+        <Route path="/" element={<Layout />}>
+        
+          {/* Redirect root path "/" to "/home" */}
+          <Route index element={<Navigate to="/home" replace />} />
+
+          {/* Protected index route */}
+          <Route
+            path="home"
+            element={
+              <ProtectedRoute>
+                <Suspense fallback={<div>Loading...</div>}>
+                  <NotesHome />
+                </Suspense>
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Public route */}
+          <Route
+            path="login"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <Login />
+              </Suspense>
+            }
+          />
+
+          {/* Catch-all route */}
+          <Route path="*" element={<h2>Page not found</h2>} />
+
+        </Route>
       </Routes>
-      <main>
-        <Outlet />
-      </main>
     </Router>
   );
 }
 
-export default App
+export default App;
