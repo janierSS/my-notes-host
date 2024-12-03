@@ -8,8 +8,11 @@ import {
 import Layout from "./components/Layout";
 import ProtectedRoute from "./components/ProtectedRoute";
 
-const NotesHome = React.lazy(() => import("notesHomeRemote/NotesHome"));
 const Login = React.lazy(() => import("loginRemote/module"));
+const NotesHome = React.lazy(async () => {
+  const module = await import("notesHomeRemote/module");
+  return { default: module.default.NotesHome }; // Access NotesHome from the default export
+});
 
 function App() {
   return (
