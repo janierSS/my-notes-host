@@ -2,26 +2,24 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface AuthState {
-  userId: number | null;
-  message: string | null;
+  authReceipt: string | null;
 }
 
 const initialState: AuthState = {
-  userId: null,
-  message: null,
+  authReceipt: null,
 };
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    setCredentials: (state, action: PayloadAction<{ userId: number; message: string }>) => {
-      state.userId = action.payload.userId;
-      state.message = action.payload.message;
+    setCredentials: (state, action: PayloadAction<string>) => {
+      state.authReceipt = action.payload;
+      
     },
     logout: (state) => {
-      state.userId = null;
-      state.message = null;
+      sessionStorage.removeItem('AUTH_RECEIPT')
+      state.authReceipt = null;
     },
   },
 });

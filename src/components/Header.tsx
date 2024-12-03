@@ -2,11 +2,11 @@ import React from "react";
 import { logout } from "../store/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import styles from './Header.module.scss'
-import { selectUserId } from "../store/selectors";
+import { selectAuthReceipt } from "../store/selectors";
 
 const Header: React.FC = () => {
   const dispatch = useDispatch();
-  const userId = useSelector(selectUserId);
+  const authReceipt = useSelector(selectAuthReceipt);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -15,7 +15,7 @@ const Header: React.FC = () => {
   return (
     <header className={styles.container}>
       <h1>My Notes</h1>
-      <button className={!userId ? styles.hide : undefined} onClick={handleLogout}>Logout</button>
+      <button className={!authReceipt ? styles.hide : undefined} onClick={handleLogout}>Logout</button>
     </header>
   );
 };

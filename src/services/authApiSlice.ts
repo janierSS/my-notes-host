@@ -20,7 +20,8 @@ const authApiSlice = createApi({
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
-          dispatch(setCredentials(data)); // Store userId in authSlice
+          dispatch(setCredentials(data.authReceipt)); // Store userId in authSlice
+          sessionStorage.setItem('AUTH_RECEIPT', data.authReceipt)
         } catch (err) {
           console.error('Login failed:', err);
         }

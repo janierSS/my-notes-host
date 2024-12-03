@@ -5,5 +5,5 @@ export type LoginFormValue = {
 
 export type LoginResponse = { 
     message: string; 
-    userId: number;
+    authReceipt: string;
 };

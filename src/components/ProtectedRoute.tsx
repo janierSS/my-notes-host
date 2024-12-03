@@ -2,16 +2,16 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
-import {selectUserId} from '../store/selectors'
+import { selectAuthReceipt } from "../store/selectors";
 interface ProtectedRouteProps {
   children: React.ReactElement;
 }
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-  const userId = useSelector(selectUserId);
+  const authReceipt = useSelector(selectAuthReceipt);
   const location = useLocation();
 
-  if (!userId) {
+  if (!authReceipt) {
     // Redirect to login page if not authenticated
     return <Navigate to="/login" state={{ from: location }} replace />;
   }

@@ -1,3 +1,3 @@
 import { appState } from "./appStore";
 
-export const selectUserId = (state: appState) => state.auth.userId
+export const selectAuthReceipt = (state: appState) => state.auth.authReceipt
