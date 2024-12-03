@@ -5,12 +5,7 @@ declare module 'notesHomeRemote/NotesHome' {
     export default NotesHome;
 }
 
-declare module 'loginRemote/Login' {
+declare module 'loginRemote/module' {
   const Login: React.ComponentType;
   export default Login;
-}
-
-declare module 'loginRemote/loginApiSlice' {
-  const loginApiSlice: any;
-  export default loginApiSlice;
 }

@@ -15,7 +15,7 @@ const Header: React.FC = () => {
   return (
     <header className={styles.container}>
       <h1>My Notes</h1>
-      <button className={!userId && styles.hide} onClick={handleLogout}>Logout</button>
+      <button className={!userId ? styles.hide : undefined} onClick={handleLogout}>Logout</button>
     </header>
   );
 };

@@ -9,7 +9,7 @@ import Layout from "./components/Layout";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const NotesHome = React.lazy(() => import("notesHomeRemote/NotesHome"));
-const Login = React.lazy(() => import("loginRemote/Login"));
+const Login = React.lazy(() => import("loginRemote/module"));
 
 function App() {
   return (
