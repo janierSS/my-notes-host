@@ -1,16 +1,15 @@
 import { configureStore, createSelector } from "@reduxjs/toolkit";
-import loginApiSlice from "loginRemote/loginApiSlice";
+import authApiSlice from "../services/authApiSlice";
+import authSlice from './authSlice'
 
 const appStore = configureStore({
   reducer: {
-    [loginApiSlice.reducerPath]: loginApiSlice.reducer,
+    [authApiSlice.reducerPath]: authApiSlice.reducer,
+    [authSlice.name]: authSlice.reducer
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(loginApiSlice.middleware),
+    getDefaultMiddleware().concat(authApiSlice.middleware),
 });
-
-const selectUserIdResult = loginApiSlice.endpoints.login.select()
-export const selectUserId = createSelector(selectUserIdResult, result => result?.data?.userId)
 
 export type appState = ReturnType<typeof appStore.getState>;
 

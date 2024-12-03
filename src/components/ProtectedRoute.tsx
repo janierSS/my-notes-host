@@ -2,16 +2,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
-import { selectUserId } from "../store/appStore";
-
+import {selectUserId} from '../store/selectors'
 interface ProtectedRouteProps {
   children: React.ReactElement;
 }
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   const userId = useSelector(selectUserId);
-  console.log("userId: ", userId);
-
   const location = useLocation();
 
   if (!userId) {
