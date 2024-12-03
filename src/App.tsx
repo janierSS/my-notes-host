@@ -16,7 +16,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Layout />}>
-        
+
           {/* Redirect root path "/" to "/home" */}
           <Route index element={<Navigate to="/home" replace />} />
 
@@ -40,6 +40,10 @@ function App() {
                 <Login />
               </Suspense>
             }
+          />
+          <Route
+            path="error"
+            element={<div>Error</div>}
           />
 
           {/* Catch-all route */}

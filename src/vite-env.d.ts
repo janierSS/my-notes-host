@@ -9,3 +9,8 @@ declare module 'loginRemote/Login' {
   const Login: React.ComponentType;
   export default Login;
 }
+
+declare module 'loginRemote/loginApiSlice' {
+  const loginApiSlice: any;
+  export default loginApiSlice;
+}

@@ -1,13 +1,17 @@
 // ProtectedRoute.tsx
-import React from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
+import React from "react";
+import { useSelector } from "react-redux";
+import { Navigate, useLocation } from "react-router-dom";
+import { selectUserId } from "../store/appStore";
 
 interface ProtectedRouteProps {
   children: React.ReactElement;
 }
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-  const userId = 'asd' //TODO: get from selector
+  const userId = useSelector(selectUserId);
+  console.log("userId: ", userId);
+
   const location = useLocation();
 
   if (!userId) {
