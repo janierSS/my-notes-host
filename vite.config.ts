@@ -13,7 +13,8 @@ export default defineConfig({
     exposes: {
       './appStore': './src/store/appStore',
       './selectAuthReceipt': './src/exports/selectAuthReceipt',
-      './useLoginMutation': './src/exports/useLoginMutation'
+      './useLoginMutation': './src/exports/useLoginMutation',
+      './AuthReceiptProvider': './src/exports/AuthReceiptProvider'
     },
     shared: ['react', 'react-dom', 'react-router-dom', 'react-redux', '@reduxjs/toolkit']
   })],
