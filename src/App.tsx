@@ -8,11 +8,9 @@ import {
 import Layout from "./components/Layout";
 import ProtectedRoute from "./components/ProtectedRoute";
 
-const Login = React.lazy(() => import("loginRemote/module"));
-const NotesHome = React.lazy(async () => {
-  const module = await import("notesHomeRemote/module");
-  return { default: module.default.NotesHome }; // Access NotesHome from the default export
-});
+const Login = React.lazy(() => import("loginRemote/Login"));
+const NotesHome = React.lazy(() => import("notesHomeRemote/NotesHomeComponent"));
+
 
 function App() {
   return (
@@ -28,7 +26,7 @@ function App() {
             path="home"
             element={
               <ProtectedRoute>
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<div>Loading Home...</div>}>
                   <NotesHome />
                 </Suspense>
               </ProtectedRoute>
@@ -39,7 +37,7 @@ function App() {
           <Route
             path="login"
             element={
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<div>Loading Login...</div>}>
                 <Login />
               </Suspense>
             }

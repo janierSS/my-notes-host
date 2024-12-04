@@ -11,7 +11,9 @@ export default defineConfig({
       loginRemote: 'http://localhost:5001/dist/assets/remoteEntry.js'
     },
     exposes: {
-      './shared': './src/exposes'
+      './appStore': './src/store/appStore',
+      './selectAuthReceipt': './src/exports/selectAuthReceipt',
+      './useLoginMutation': './src/exports/useLoginMutation'
     },
     shared: ['react', 'react-dom', 'react-router-dom', 'react-redux', '@reduxjs/toolkit']
   })],

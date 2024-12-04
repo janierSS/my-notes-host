@@ -1,11 +1,14 @@
 /// <reference types="vite/client" />
 
-declare module "notesHomeRemote/module" {
+//Notes Home Module
+declare module "notesHomeRemote/NotesHomeComponent" {
   const NotesHome: React.ComponentType;
-  export default { NotesHome };
+  export default NotesHome;
 }
+declare module "notesHomeRemote/notesApiSlice"
 
-declare module "loginRemote/module" {
+//Login Module
+declare module "loginRemote/Login" {
   const Login: React.ComponentType;
   export default Login;
 }
