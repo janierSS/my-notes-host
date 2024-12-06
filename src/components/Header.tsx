@@ -14,7 +14,7 @@ const Header: React.FC = () => {
 
   return (
     <header className={styles.container}>
-      <h1>My Notes</h1>
+      <h1>MyNotes</h1>
       <button className={!authReceipt ? styles.hide : undefined} onClick={handleLogout}>Logout</button>
     </header>
   );
