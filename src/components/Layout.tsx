@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "../store/authSlice";
+import styles from './Layout.module.scss'
 
 const Layout: React.FC = () => {
   const authReceipt = sessionStorage.getItem("AUTH_RECEIPT");
@@ -13,7 +14,7 @@ const Layout: React.FC = () => {
   return (
     <>
       <Header/>
-      <main>
+      <main className={styles.main}>
         <Outlet />
       </main>
     </>
