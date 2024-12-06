@@ -1,10 +1,10 @@
 .container {
-    max-width: 60rem;
-    margin: auto;
-}
-
-.main {
+  max-width: 60rem;
+  margin: auto;
+  
+  &__main {
     max-width: 30rem;
     margin: auto;
     margin-top: 5rem;
+  }
 }

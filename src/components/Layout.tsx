@@ -4,6 +4,7 @@ import Header from "./Header";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "../store/authSlice";
 import styles from './Layout.module.scss'
+import Footer from "./Footer";
 
 const Layout: React.FC = () => {
   const authReceipt = sessionStorage.getItem("AUTH_RECEIPT");
@@ -14,9 +15,10 @@ const Layout: React.FC = () => {
   return (
     <div className={styles.container}>
       <Header/>
-      <main className={styles.main}>
+      <main className={styles['container__main']}>
         <Outlet />
       </main>
+      {/* <Footer/> */}
     </div>
   );
 };

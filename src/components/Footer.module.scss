@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+    min-height: 10rem;
+    
+
+    &__line {
+        border-top: 1px solid #4c3d3d;
+    }
+}
